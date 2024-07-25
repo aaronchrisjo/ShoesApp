@@ -9,10 +9,6 @@ import { AuthenticationService } from '../authentication.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  constructor(private authenticationService: AuthenticationService) {}
-
-  logout():void{
-    this.authenticationService.logout();
-  }
+  
 
 }

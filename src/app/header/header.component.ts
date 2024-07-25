@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { AuthenticationGuardService } from '../authentication.guard.service';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -10,4 +12,10 @@ import { NavbarComponent } from '../navbar/navbar.component';
 })
 export class HeaderComponent {
   logoUrl: string = 'assets/logo.png';
+
+  constructor(private authenticationService: AuthenticationService) {}
+
+  logout():void{
+    this.authenticationService.logout();
+  }
 }
