@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { ShoesService } from '../shoes.service';
+import { AddComponent } from '../add/add.component';
 
 @Component({
   selector: 'app-shoes',

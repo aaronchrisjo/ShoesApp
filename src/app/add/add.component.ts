@@ -4,11 +4,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ShoesService } from '../shoes.service';
 import { ShoeListings } from '../shoe-listings';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-add',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, RouterModule],
   templateUrl: './add.component.html',
   styleUrl: './add.component.css'
 })
