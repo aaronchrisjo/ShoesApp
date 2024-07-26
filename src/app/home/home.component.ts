@@ -9,6 +9,20 @@ import { AuthenticationService } from '../authentication.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  
+  welcomeMessage :string = 'Welcome to ShoeStore !!';
+
+  constructor(private authenticationService: AuthenticationService){}
+
+  ngOnInit():void{
+    this.authenticationService.isLoggedIn().subscribe(isLoggedIn=>{
+      if (isLoggedIn){
+        this.authenticationService.getUsername().subscribe(username=>{
+          if (username){
+            this.welcomeMessage = `Welcome to ShoeStore, ${username} !!`;
+          }
+        })
+      }
+    })
+  }
 
 }

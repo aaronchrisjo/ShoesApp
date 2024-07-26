@@ -7,15 +7,19 @@ import { Router } from '@angular/router';
 })
 export class AuthenticationService {
   private loggedIn = new BehaviorSubject<boolean>(false);
+  private username = new BehaviorSubject<string|null>(null);
 
   constructor(private router:Router) { 
     this.loggedIn.next(!!localStorage.getItem('token'));
+    this.username.next(localStorage.getItem('username'));
   }
 
   login(username:string, password:string): Observable<boolean>{
     if(username==='user' && password==='pass'){
       localStorage.setItem('token','your-shoe-token-here');
+      localStorage.setItem('username',username);
       this.loggedIn.next(true);
+      this.username.next(username);
       return new Observable<boolean>((observer)=>{
         observer.next(true);
         observer.complete();
@@ -23,6 +27,7 @@ export class AuthenticationService {
     }
     else{
       this.loggedIn.next(false);
+      this.username.next(null);
       return new Observable<boolean>((observer)=>{
         observer.next(false);
         observer.complete();
@@ -32,11 +37,17 @@ export class AuthenticationService {
 
   logout():void{
     localStorage.removeItem('token');
+    localStorage.removeItem('usrname');
     this.loggedIn.next(false);
+    this.username.next(null);
     this.router.navigate(['/login'])
   }
 
   isLoggedIn():Observable<boolean>{
     return this.loggedIn.asObservable();
+  }
+
+  getUsername():Observable<string|null>{
+    return this.username.asObservable();
   }
 }
