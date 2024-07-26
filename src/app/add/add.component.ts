@@ -15,6 +15,7 @@ import { ShoeListings } from '../shoe-listings';
 export class AddComponent {
   newShoeForm: FormGroup;
   submissionResult: string | null = null;
+  newShoeDetails: any;
 
   constructor(private fb: FormBuilder, private shoeService: ShoesService) {
     this.newShoeForm = this.fb.group({
@@ -41,6 +42,7 @@ export class AddComponent {
 
       this.shoeService.addShoe(newShoe);
       this.submissionResult = 'Shoe added successfully!';
+      this.newShoeDetails = newShoe;
       console.log('New Shoe Details:', newShoe);
       this.newShoeForm.reset();
     } else {

@@ -64,4 +64,11 @@
 
     <p class="text-green-500 mt-4 text-center">{{submissionResult}}</p>
   </form>
+  <div *ngIf="newShoeDetails">
+    <h2>New Shoe Details</h2>
+    <p><strong>Name:</strong> {{ newShoeDetails.name }}</p>
+    <p><strong>Price:</strong> {{ newShoeDetails.price }}</p>
+    <p><strong>Description:</strong> {{newShoeDetails.details}}</p>
+    <p>Since i am not using a backend it will change everytime i refresh. So i am temporarily displaying the details here to make sure this function is working. The details are also logged into the console.<p>
+  </div>
 </div>
