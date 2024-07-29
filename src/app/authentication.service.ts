@@ -15,7 +15,7 @@ export class AuthenticationService {
   }
 
   login(username:string, password:string): Observable<boolean>{
-    if(username==='user' && password==='pass'){
+    if(username==='user' && password==='pass' || username==='test' && password==='root'){
       localStorage.setItem('token','your-shoe-token-here');
       localStorage.setItem('username',username);
       this.loggedIn.next(true);
