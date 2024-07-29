@@ -6,6 +6,7 @@ import { DetailsComponent } from './details/details.component';
 import { AddComponent } from './add/add.component';
 import { LoginComponent } from './login/login.component';
 import { AuthenticationGuardService } from './authentication.guard.service';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 export const routes: Routes = [
     { path: '',redirectTo: 'home',pathMatch:'full'},
@@ -15,4 +16,5 @@ export const routes: Routes = [
     { path: 'details/:id', component:DetailsComponent},
     { path: 'add', component:AddComponent, canActivate:[AuthenticationGuardService]},
     { path: 'login', component:LoginComponent},
+    { path: 'wishlist', component:WishlistComponent, canActivate:[AuthenticationGuardService]}
 ];
