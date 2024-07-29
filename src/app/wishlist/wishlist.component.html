@@ -1,5 +1,5 @@
 <div class="wishlist-container max-w-4xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
-    <h2 class="text-3xl font-bold mb-6 text-center">Wishlist</h2>
+    <h2 class="text-3xl font-bold mb-6 text-center text-red-600">Your Wishlist</h2>
     <div *ngIf="wishlist.length > 0; else noItems" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <div *ngFor="let shoe of wishlist" class="wishlist-item bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
         <img [src]="shoe.imageUrl" alt="{{shoe.name}}" class="w-full h-48 object-cover rounded-t-lg mb-4">
