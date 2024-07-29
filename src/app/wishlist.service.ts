@@ -41,6 +41,13 @@ export class WishlistService {
     }
   }
 
+  removeFromWishlist(shoe:ShoeListings): void{
+    const currentWishlist = this.wishlistSubject.value;
+    const updatedWishlist = currentWishlist.filter(item => item.id !== shoe.id);
+    this.wishlistSubject.next(updatedWishlist);
+    this.saveWishlist(updatedWishlist);
+  }
+
   getWishlist(){
     return this.wishlistSubject.value;
   }

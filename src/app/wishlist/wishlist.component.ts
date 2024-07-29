@@ -20,4 +20,8 @@ export class WishlistComponent implements OnInit{
       this.wishlist = wishlist;
     });
   }
+
+  removeFromWishlist(shoe: ShoeListings): void{
+    this.wishlistService.removeFromWishlist(shoe);
+  }
 }
